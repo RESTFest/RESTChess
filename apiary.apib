@@ -14,10 +14,10 @@ The home page.
             "_links": {
                 "self": { "href": "/" },
                 "games": [
-                    { "href": "/chess-game/23j89nuklyedsio/" }
+                    { "href": "/games/23j89nuklyedsio/" }
                 ],
-                "bot-queue": { "href": "/queue/bot" },
-                "human-queue": { "href": "/queue/human" }
+                "bot-queue": { "href": "/queues/bot" },
+                "human-queue": { "href": "/queues/human" }
             }
         }
 
@@ -29,7 +29,7 @@ The home page.
 
 # Group Chess Game
 
-## Chess Game [/chess-game/23j89nuklyedsio/]
+## Chess Game [/games/23j89nuklyedsio/]
 
 A chess game.
 
@@ -58,7 +58,7 @@ A chess game.
                     }
                 ],
                 "workflow:make-decisions": {
-                    "href": "/chess-game/23j89nuklyedsio/make-decisions"
+                    "href": "/games/23j89nuklyedsio/make-decisions"
                 }
             }
         }
@@ -68,7 +68,7 @@ A chess game.
 
     [Chess Game][]
 
-## Decisions [/chess-game/23j89nuklyedsio/make-decisions]
+## Decisions [/games/23j89nuklyedsio/make-decisions]
 
 The decisions a client needs to make for a game.
 
@@ -114,7 +114,7 @@ Retrieve the next work-order from the queue. May be expanded in the future to co
                 "board" : "rnbqkbnr/pppp1ppp/8/4p3/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1",
                 "legal-moves" : [ "a5", "a6", "b5", "b6", "c5", "c6" ]
             },
-            "complete": "/work-orders/7d7e587b-9d8c-48bd-bdec-35e0707f173f"
+            "complete": "/work/7d7e587b-9d8c-48bd-bdec-35e0707f173f"
         }
 
 ### Get a work order [GET]
@@ -122,7 +122,7 @@ Retrieve the next work-order from the queue. May be expanded in the future to co
 
     [Queue][]
 
-## Work Orders [/work-orders/{id}]
+## Work Orders [/work/{id}]
 
 ### Complete a work order [POST]
 + Request (application/x-www-form-urlencoded)

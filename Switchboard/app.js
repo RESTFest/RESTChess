@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 var hal = require("express-hal");
 
 var routes = require('./routes/index');
+var games = require('./routes/games');
+var queues = require('./routes/queues');
+var work = require('./routes/work');
 
 var app = express();
 
@@ -24,6 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(hal.middleware);
 
 app.use('/', routes);
+app.use('/games', games);
+app.use('/queues', queues);
+app.use('/work', work);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
