@@ -110,7 +110,12 @@ Retrieve the next work-order from the queue. May be expanded in the future to co
             "type": "http://mogsie.com/static/workflow/make-chess-move",
             "input": {
                 "board" : "rnbqkbnr/pppp1ppp/8/4p3/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1",
-                "legal-moves" : [ "a5", "a6", "b5", "b6", "c5", "c6" ]
+                "legal-moves" : [ "a5", "a6", "b5", "b6", "c5", "c6" ],
+                "transformations" : {
+                   "a5" : [ { "from": "a7", "to": "a5" } ], "a6" : [ { "from": "a7", "to": "a6" } ],
+                   "b5" : [ { "from": "b7", "to": "b5" } ], "b6" : [ { "from": "b7", "to": "b6" } ],
+                   "c5" : [ { "from": "c7", "to": "c5" } ], "c6" : [ { "from": "c7", "to": "c6" } ]
+                }
             },
             "complete": "/work/7d7e587b-9d8c-48bd-bdec-35e0707f173f"
         }
