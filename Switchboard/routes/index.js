@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
         links: {
             self: "/",
             games: [
-                { href: "/chess-game/23j89nuklyedsio/" }
+                { href: "/games/23j89nuklyedsio/" }
             ],
             "bot-queue": "/queues/bot",
             "human-queue": "/queues/human"
