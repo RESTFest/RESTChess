@@ -19,7 +19,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
-    global.games.push(uuid.v4());
+    var id = uuid.v4();
+    global.games.push(id);
+    global.game_state[id] = req.body;
     res.send('OK');
 });
 
