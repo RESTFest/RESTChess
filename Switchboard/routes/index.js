@@ -3,7 +3,16 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    res.hal({
+        links: {
+            self: "/",
+            games: [
+                { href: "/chess-game/23j89nuklyedsio/" }
+            ],
+            "bot-queue": "/queues/bot",
+            "human-queue": "/queues/human"
+        }
+    });
 });
 
 module.exports = router;
