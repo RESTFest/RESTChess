@@ -62,5 +62,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
+global.games = [];
 
 module.exports = app;
