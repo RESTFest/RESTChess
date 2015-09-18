@@ -12,8 +12,7 @@ router.get('/', function(req, res, next) {
         "links": {
             "self": "/",
             "games": links,
-            "bot-queue": "/queues/bot",
-            "human-queue": "/queues/human"
+            "bot-queue": "/queues/bots"
         }
     });
 });

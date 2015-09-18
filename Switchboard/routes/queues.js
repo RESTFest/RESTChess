@@ -2,8 +2,23 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/:id', function(req, res, next) {
+    var id = req.params.id;
+
+    if (global.workids[id] == undefined) {
+        res.send();
+    } else {
+        if (global.workids[id].length == 0) {
+            res.send();
+        } else {
+            var workid = global.workids[id][0];
+            res.send({
+                "type": global.work[workid].work.type,
+                "input": global.work[workid].work.input,
+                "complete": "/work/" + workid
+            });
+        }
+    }
 });
 
 module.exports = router;

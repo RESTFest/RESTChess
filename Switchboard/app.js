@@ -64,5 +64,7 @@ app.use(function(err, req, res, next) {
 
 global.games = [];
 global.game_state = {};
+global.workids = {};
+global.work = {};
 
 module.exports = app;
