@@ -6,7 +6,6 @@ router.post('/:id', function(req, res, next) {
     var workid = req.params.id;
     // update game
     var game = global.work[workid].game;
-    console.log(req);
     var event = {
         "type": "work-completed",
         "name": "make-a-move",
@@ -16,14 +15,16 @@ router.post('/:id', function(req, res, next) {
     global.game_state[game]['recent-events'] = global.game_state[game]['recent-events'] || [];
     global.game_state[game]['recent-events'].push(event)
 
+    var queue = global.work[workid].queue;
     // clear work from queue
-    var index = global.workids['bots'].indexOf(workid);
+    var index = global.workids[queue].indexOf(workid);
     if (index > -1) {
-        global.workids['bots'].splice(index, 1);
+        global.workids[queue].splice(index, 1);
     }
     //delete global.workids['bots'].workid;
     // clear work
     delete global.work[workid];
+
     res.send();
 });
 
