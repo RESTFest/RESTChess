@@ -4,15 +4,17 @@ var uuid = require('node-uuid');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    var base = req.protocol + "://" + req.headers.host
+    
     var links = global.games.map(function(str) {
-        return { "href": "/games/" + str };
+        return { "href": base + "/games/" + str };
     });
     
     res.hal({
         "links": {
-            "self": "/",
+            "self": base,
             "games": links,
-            "bot-queue": "/queues/bots"
+            "bot-queue": base + "/queues/bots"
         }
     });
 });

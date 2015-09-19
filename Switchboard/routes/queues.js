@@ -12,10 +12,11 @@ router.get('/:id', function(req, res, next) {
             res.send();
         } else {
             var workid = global.workids[id][0];
+            var base = req.protocol + "://" + req.headers.host
             res.send({
                 "type": global.work[workid].work.type,
                 "input": global.work[workid].work.input,
-                "complete": "/work/" + workid
+                "complete": base + "/work/" + workid
             });
         }
     }

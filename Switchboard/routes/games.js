@@ -6,6 +6,8 @@ var uuid = require('node-uuid');
 router.get('/:id', function(req, res, next) {
     var id = req.params.id;
 
+    var base = req.protocol + "://" + req.headers.host
+    
     if (global.games.indexOf(id) < 0) {
         res.status(404).send('Game not found');
         return;
@@ -16,8 +18,8 @@ router.get('/:id', function(req, res, next) {
             "current-state": "tag:chess.mogsie.com,2001:game-in-progress",
             "data": global.game_state[id],
             "_links": {
-                "self": { "href": "/games/" + id },
-                "workflow:make-decisions": { "href": "/games/" + id + "/make-decisions" }
+                "self": { "href": base + "/games/" + id },
+                "workflow:make-decisions": { "href": base + "/games/" + id + "/make-decisions" }
             }
         }
     );
