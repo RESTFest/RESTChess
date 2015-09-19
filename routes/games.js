@@ -47,4 +47,19 @@ router.post('/:id/make-decisions', function(req, res) {
     res.send();
 });
 
+router.delete('/:id', function(req, res) {
+    var id = req.params.id;
+
+    if (global.games.indexOf(id) < 0) {
+        res.status(404).send('Game not found');
+        return;
+    }
+
+    var index = global.games.indexOf(id);
+    global.games.splice(index, 1);
+
+    delete global.game_state[id];
+    res.send();
+});
+
 module.exports = router;
